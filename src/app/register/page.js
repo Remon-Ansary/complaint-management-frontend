@@ -1,33 +1,24 @@
 "use client"
 import { Form, Input, Button, message } from "antd"
-import api from "../utils/api"
+import api from "../../utils/api"
 import { useRouter } from "next/navigation"
-import { useContext } from "react"
-import { AuthContext } from "./context/AuthContext"
 
-export default function Login() {
+export default function Register() {
   const router = useRouter()
-  const { login } = useContext(AuthContext)
 
   const onFinish = async (values) => {
     try {
-      const { data } = await api.post("/login", values)
-    
-      login(data.token)
-      const tokenPayload = JSON.parse(atob(data.token.split(".")[1]))
-      if (tokenPayload.role === "admin") {
-        router.push("/admin/dashboard")
-      } else {
-        router.push("/customer/dashboard")
-      }
+      await api.post("/register", values)
+      message.success("Registration successful! Please login.")
+      router.push("/")
     } catch (error) {
-      message.error(error.response?.data || "Login failed")
+      message.error(error.response?.data || "Registration failed")
     }
   }
 
   return (
     <div style={{ maxWidth: 400, margin: "auto", padding: "2rem" }}>
-      <h1>Login</h1>
+      <h1>Register</h1>
       <Form onFinish={onFinish}>
         <Form.Item
           name="username"
@@ -43,11 +34,10 @@ export default function Login() {
         </Form.Item>
         <Form.Item>
           <Button type="primary" htmlType="submit" block>
-            Login
+            Register
           </Button>
         </Form.Item>
       </Form>
-      <a href="/register">Register as Customer</a>
     </div>
   )
 }

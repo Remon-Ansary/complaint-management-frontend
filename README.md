@@ -1,36 +1,66 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Complaint Management Frontend
 
-## Getting Started
+This project is a Next.js-based frontend for a role-based complaint management system. It integrates with a Node.js backend to handle user authentication and complaint ticket management using Axios and Ant Design for a modern, responsive UI.
 
-First, run the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Sample Login Credentials
+
+You can use these sample credentials to test the application:
+
+### Admin Login
+```json
+{
+  "username": "admin",
+  "password": "admin"
+}
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Customer Login
+```json
+{
+  "username": "remon",
+  "password": "remon"
+}
+```
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+You can also create new users via the Register as Customer page.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Features
 
-## Learn More
+- **User Authentication**  
+  Login and registration pages for customers, with role-based redirection.
+- **Role-Based Dashboards**  
+  - **Customer Dashboard:** View, create, and delete complaint tickets.  
+  - **Admin Dashboard:** View all tickets, update ticket status, and add replies.
+- **Ticket Details Page**  
+  A detailed view of a ticket with a colorful layout, including admin actions and a list of replies.
+- **Global Navigation**  
+  A header with Dashboard and Logout options that update automatically based on user authentication state.
 
-To learn more about Next.js, take a look at the following resources:
+## Installation
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. **Clone the Repository**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+   ```bash
+   git clone <repository-url>
+   cd complaint-management-frontend
+2. **Install Dependencies**
 
-## Deploy on Vercel
+   ```bash
+   npm install
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+3. To start the development server, run:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+   ```bash
+   npm run dev
+   ```
+
+   Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+## Tech Stack
+
+- **Frontend:** Next.js, Axios, Ant Design
+- **Backend:** Node.js, Express, SQLite
+- **Authentication:** JWT
+- **Styling:** CSS Modules, Ant Design
+
